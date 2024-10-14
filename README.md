@@ -9,7 +9,7 @@ This repository provides an example of setting up and debugging two NestJS appli
 To complete this project, you need the following tools installed on your local machine:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) (with Kubernetes enabled)
-- [Node.js](https://nodejs.org/) (version 22.6.0 recommended)
+- [Node.js](https://nodejs.org/)
 - [Nest CLI](https://docs.nestjs.com/cli/overview)
 - [Skaffold](https://skaffold.dev/)
 - [VS Code](https://code.visualstudio.com/) with [Google Cloud Code extension](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode)
