@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: myingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - backend:
+          service:
+            name: nestone-srv
+            port:
+              number: 8000
+        path: /nestone
+        pathType: Prefix
+      - backend:
+          service:
+            name: nesttwo-srv
+            port:
+              number: 8000
+        path: /nesttwo
+        pathType: Prefix
+  defaultBackend:
+    service:
+      name: nestone-srv
+      port:
+        number: 8000

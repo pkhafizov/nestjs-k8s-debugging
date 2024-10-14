@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nestone-srv
+spec:
+  selector:
+    app: nest-one
+  ports:
+    - targetPort: 3000
+      name: http
+      port: 8000

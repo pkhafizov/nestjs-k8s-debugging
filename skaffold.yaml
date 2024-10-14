@@ -1,0 +1,21 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: nestjs-k-s-debugging
+build:
+  artifacts:
+    - image: nest-one
+      context: nest-one
+      docker:
+        dockerfile: Dockerfile
+    - image: nest-two
+      context: nest-two
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - k8s/ingress.yaml
+    - k8s/nest-one-deployment.yaml
+    - k8s/nest-one-service.yaml
+    - k8s/nest-two-deployment.yaml
+    - k8s/nest-two-service.yaml
