@@ -34,8 +34,10 @@ To complete this project, you need the following tools installed on your local m
 
     ```bash
     cd nest-one
+    npm install
     npm run build
     cd ../nest-two
+    npm install
     npm run build
     cd ..
     ```
@@ -98,10 +100,10 @@ To complete this project, you need the following tools installed on your local m
     manifests:
       rawYaml:
         - k8s/ingress.yaml
-        - k8s/nestone-deployment.yaml
-        - k8s/nestone-service.yaml
-        - k8s/nesttwo-deployment.yaml
-        - k8s/nesttwo-service.yaml
+        - k8s/nest-one-deployment.yaml
+        - k8s/nest-one-service.yaml
+        - k8s/nest-two-deployment.yaml
+        - k8s/nest-two-service.yaml
     ```
 
 ## Debugging with VS Code

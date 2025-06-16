@@ -1,17 +1,28 @@
 apiVersion: skaffold/v4beta11
 kind: Config
 metadata:
-  name: nestjs-k-s-debugging
+  name: nestjs-k8s-debugging
 build:
   artifacts:
     - image: nest-one
       context: nest-one
       docker:
         dockerfile: Dockerfile
+        target: debug
     - image: nest-two
       context: nest-two
       docker:
         dockerfile: Dockerfile
+        target: debug
+deploy:
+  helm:
+    releases:
+      - name: ingress-nginx
+        remoteChart: ingress-nginx
+        repo: https://kubernetes.github.io/ingress-nginx
+        version: 4.12.0
+        namespace: ingress-nginx
+        createNamespace: true
 manifests:
   rawYaml:
     - k8s/ingress.yaml

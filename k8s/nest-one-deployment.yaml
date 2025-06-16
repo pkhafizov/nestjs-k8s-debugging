@@ -16,6 +16,8 @@ spec:
       containers:
         - name: nest-one
           image: nest-one
+          ports:
+            - containerPort: 3000
           resources:
             limits:
               memory: 512Mi

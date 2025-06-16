@@ -4,7 +4,7 @@
       "name": "Kubernetes: Run/Debug",
       "type": "cloudcode.kubernetes",
       "request": "launch",
-      "skaffoldConfig": "${workspaceFolder}\\skaffold.yaml",
+      "skaffoldConfig": "${workspaceFolder}/skaffold.yaml",
       "watch": true,
       "cleanUp": true,
       "portForward": true,
@@ -13,14 +13,14 @@
           "image": "nest-one",
           "containerName": "nest-one",
           "sourceFileMap": {
-            "${workspaceFolder}\\nest-one": "/usr/src/app"
+            "${workspaceFolder}/nest-one": "/usr/src/app"
           }
         },
         {
           "image": "nest-two",
           "containerName": "nest-two",
           "sourceFileMap": {
-            "${workspaceFolder}\\nest-two": "/usr/src/app"
+            "${workspaceFolder}/nest-two": "/usr/src/app"
           }
         }
       ]
