@@ -44,6 +44,13 @@ To complete this project, you need the following tools installed on your local m
     cd ..
     ```
 
+3. If your Kubernetes cluster doesn't have an Ingress controller installed, you can easily set one up using Helm. For example, to install NGINX Ingress Controller, you can run the following command:
+
+    ```bash
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    helm repo update
+    helm install nginx-ingress ingress-nginx/ingress-nginx
+    ```
 
 ## Debugging with VS Code
 
