@@ -1,7 +1,5 @@
 # How to Debug NestJS Micro-services Locally Inside Kubernetes with VS Code & skaffold
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/pkhafizov/nestjs-k8s-debugging/ci.yml?branch=main)](https://github.com/pkhafizov/nestjs-k8s-debugging/actions) [![License](https://img.shields.io/github/license/pkhafizov/nestjs-k8s-debugging)](https://github.com/pkhafizov/nestjs-k8s-debugging/blob/main/LICENSE) [![Docker Pulls](https://img.shields.io/docker/pulls/pkhafizov/nest-one)](https://hub.docker.com/r/pkhafizov/nest-one)
-
 A step-by-step guide to run and debug two NestJS micro-services inside a local Kubernetes cluster using Skaffold and VS Code.
 
 ## Table of Contents
