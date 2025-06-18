@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository provides an example of setting up and debugging two NestJS applications (`nest-one` and `nest-two`) in a local Kubernetes environment. The goal is to replicate a production-like setup to ensure efficient debugging. This guide covers setting up Docker and Kubernetes manifests to enable a streamlined debugging workflow.
+This repository provides an example of setting up and debugging two NestJS applications (`nest-one` and `nest-two`) in a local Kubernetes environment. The goal is to replicate a production-like setup to ensure efficient debugging.
 
 ## Project Structure
 
