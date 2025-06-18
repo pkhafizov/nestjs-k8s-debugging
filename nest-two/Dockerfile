@@ -1,37 +1,45 @@
-# ─── builder ───────
-FROM node:22.6.0 AS builder
+# ─── base ───────
+FROM node:22-alpine AS base
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm ci
 
 COPY . .
+
+# ─── debug ───────
+FROM base AS debug
+
+ENV NODE_ENV=development
+
+EXPOSE 3000 9229
+
+RUN npm install -g @nestjs/cli
+
+CMD ["npm", "run", "start:debug"]
+
+# ─── builder ───────
+FROM base AS builder
+
 RUN npm run build
 # RUN npm test
 
-# ─── debug ───────
-FROM node:22.6.0 AS debug
-WORKDIR /usr/src/app
-
-# grab *all* your source, built assets, and modules from builder
-COPY --from=builder --chown=node:node /usr/src/app ./
-
-EXPOSE 3000 9229
-USER node
-
-# this uses your "start:debug" script (which does `nest start --debug --watch`)
-CMD ["npm", "run", "start:debug"]
-
 # ─── production ───
 FROM node:22-alpine AS production
-WORKDIR /usr/src/app
 
-COPY --from=builder /usr/src/app/package*.json ./
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+
+WORKDIR /app
+
+COPY --from=builder /app/package*.json ./
 RUN npm ci --omit=dev
-COPY --from=builder /usr/src/app/dist ./dist
+
+COPY --from=builder /app/dist ./dist
 
 EXPOSE 3000
-USER node
+
+USER appuser
+
 CMD ["node", "dist/main.js"]

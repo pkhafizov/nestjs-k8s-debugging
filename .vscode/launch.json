@@ -13,14 +13,14 @@
           "image": "nest-one",
           "containerName": "nest-one",
           "sourceFileMap": {
-            "${workspaceFolder}/nest-one": "/usr/src/app"
+            "${workspaceFolder}/nest-one": "/app"
           }
         },
         {
           "image": "nest-two",
           "containerName": "nest-two",
           "sourceFileMap": {
-            "${workspaceFolder}/nest-two": "/usr/src/app"
+            "${workspaceFolder}/nest-two": "/app"
           }
         }
       ]

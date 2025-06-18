@@ -14,15 +14,6 @@ build:
       docker:
         dockerfile: Dockerfile
         target: debug
-deploy:
-  helm:
-    releases:
-      - name: ingress-nginx
-        remoteChart: ingress-nginx
-        repo: https://kubernetes.github.io/ingress-nginx
-        version: 4.12.0
-        namespace: ingress-nginx
-        createNamespace: true
 manifests:
   rawYaml:
     - k8s/ingress.yaml
