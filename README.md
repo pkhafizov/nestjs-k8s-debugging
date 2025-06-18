@@ -1,27 +1,41 @@
-# How to Debug NestJS Micro-services Locally Inside Kubernetes with VS Code & Skaffold
+# How to Debug NestJS Micro-services Locally Inside Kubernetes with VS Code & skaffold
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pkhafizov/nestjs-k8s-debugging/ci.yml?branch=main)](https://github.com/pkhafizov/nestjs-k8s-debugging/actions) [![License](https://img.shields.io/github/license/pkhafizov/nestjs-k8s-debugging)](https://github.com/pkhafizov/nestjs-k8s-debugging/blob/main/LICENSE) [![Docker Pulls](https://img.shields.io/docker/pulls/pkhafizov/nest-one)](https://hub.docker.com/r/pkhafizov/nest-one)
+
+A step-by-step guide to run and debug two NestJS micro-services inside a local Kubernetes cluster using Skaffold and VS Code.
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Prerequisites](#prerequisites)
+* [Project Structure](#project-structure)
+* [Setting Up the Project](#setting-up-the-project)
+* [Debugging with VS Code](#debugging-with-vs-code)
+* [Testing](#testing)
 
 ## Overview
 
-This repository provides an example of setting up and debugging two NestJS applications (`nest-one` and `nest-two`) in a local Kubernetes environment. The goal is to replicate a production-like setup to ensure efficient debugging. This guide covers setting up Docker and Kubernetes manifests to enable a streamlined debugging workflow.
-
-## Project Structure
-
-The repository is organized into the following folders and files:
-
-- `nest-one/` - first sample NestJS service
-- `nest-two/` - second sample service
-- `k8s/` - Kubernetes manifests for both services
-- `.vscode/launch.json` - VS Code debug settings for the Google Cloud Code extension
+Running services in a Kubernetes environment locally ensures parity between development and production, enabling you to catch configuration issues early. This repository demonstrates how to use Docker Desktop's Kubernetes, Skaffold, and VS Code to build, deploy, and attach a debugger to two example NestJS services.
 
 ## Prerequisites
 
-To complete this project, you need the following tools installed on your local machine:
+| Tool                                | Minimum Version | Installation                                                                                                                                                     |
+| ----------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Docker Desktop (Kubernetes enabled) | ≥ 4.x           | [https://docs.docker.com/desktop/](https://docs.docker.com/desktop/)                                                                                             |
+| Node.js                             | ≥ 18.x          | [https://nodejs.org/](https://nodejs.org/)                                                                                                                       |
+| Nest CLI                            | ≥ 9.x           | `npm i -g @nestjs/cli`                                                                                                                                           |
+| Skaffold                            | ≥ 2.x           | [https://skaffold.dev/](https://skaffold.dev/)                                                                                                                   |
+| VS Code + Cloud Code Extension      | Latest          | [https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode) |
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop) (with Kubernetes enabled)
-- [Node.js](https://nodejs.org/)
-- [Nest CLI](https://docs.nestjs.com/cli/overview)
-- [VS Code](https://code.visualstudio.com/) with [Google Cloud Code extension](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode)
-- [Skaffold](https://skaffold.dev/)
+## Project Structure
+
+| Path            | Description                                 |
+| --------------- | ------------------------------------------- |
+| `nest-one/`     | Sample NestJS service #1                    |
+| `nest-two/`     | Sample NestJS service #2                    |
+| `k8s/`          | Kubernetes manifests (Deployment, Service)  |
+| `.vscode/`      | VS Code debug configurations for Cloud Code |
+| `skaffold.yaml` | Skaffold pipeline definition                |
 
 ## Setting Up the Project
 
@@ -68,7 +82,3 @@ To complete this project, you need the following tools installed on your local m
     - [http://localhost/nesttwo](http://localhost/nesttwo)
 
 3. The execution will pause at the breakpoints, allowing you to inspect the state of the application.
-
-## Conclusion
-
-By following this guide, you will have a local Kubernetes setup running two NestJS applications, allowing you to debug and test efficiently. This setup helps replicate a production-like environment, ensuring smoother application development and troubleshooting.
